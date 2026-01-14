@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Automação CPF x CNPJ | Leroy Merlin</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <header class="header">
+        <h1>Automação de Improdutividade CPF</h1>
+        <p>Análise de CPFs improdutivos em CNPJs produtivos</p>
+    </header>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="alert">{{ messages[0] }}</div>
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST" enctype="multipart/form-data" class="card">
+
+        <div class="field">
+            <label>CNPJ Base</label>
+            <input type="file" name="cnpj_base" required>
+        </div>
+
+        <div class="field">
+            <label>CNPJ Improdutivo</label>
+            <input type="file" name="cnpj_improd" required>
+        </div>
+
+        <div class="field">
+            <label>CPF Improdutivos (Instaladores)</label>
+            <input type="file" name="cpf_improd" required>
+        </div>
+
+        <button type="submit">
+            Processar Automação
+        </button>
+
+    </form>
+
+    <footer class="footer">
+        <span>Sistema interno • Leroy Merlin</span>
+    </footer>
+
+</div>
+
+</body>
+</html>
